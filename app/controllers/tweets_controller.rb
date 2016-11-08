@@ -1,7 +1,8 @@
 class TweetsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_tweet, only: [:show, :edit, :update]
   #This makes you sign in/up before you can see any view
+  before_action :set_tweet, only: [:show, :edit, :update, :destroy]
+
  
   def index
     @tweets = Tweet.all
@@ -51,6 +52,13 @@ end
         format.html {render :edit}
       end
     end
+  end
+  
+  def destroy
+    @tweet.destroy
+    respond_to do |format|
+      format.html {redirect_to tweets_url, notice: 'Tweet Destroyed!'}
+    end  
   end
 
   
