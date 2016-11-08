@@ -3,6 +3,7 @@ class TweetsController < ApplicationController
   #This makes you sign in/up before you can see any view
  
   def index
+    @tweets = Tweet.all
   end
 # This
 
