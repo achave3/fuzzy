@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  get 'tweets/index'
-
-  get 'tweets/new'
-
-  get 'tweets/show'
-
-  get 'tweets/edit'
+  resources :tweets
+  #resources :tweets creates everything you need for CRUD
+  
+  root 'tweets#index'
+  #"So when we go to the root we go to the tweets controller in the index view"
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
