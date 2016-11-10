@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   get 'profiles/:id' => 'profiles#show', as: :profile
   
   get 'profiles' => 'profiles#index'
+  
+  resources :relationships
+  #remember resources and then a controller name (:relationships) gives you everything you need for CRUD
 
   resources :tweets
   #resources :tweets creates everything you need for CRUD
