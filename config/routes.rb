@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   resources :relationships
   #remember resources and then a controller name (:relationships) gives you everything you need for CRUD
 
-  resources :tweets
+  resources :tweets do
   #resources :tweets creates everything you need for CRUD
+    resource :likes
+  end
   
   root 'tweets#index'
   #"So when we go to the root we go to the tweets controller in the index view"
